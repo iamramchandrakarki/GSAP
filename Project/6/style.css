@@ -1,0 +1,413 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+
+:root {
+    --bg: #0f0f0f;
+    --fg: #fff;
+    --card-1: #b2b2b2;
+    --card-2: #ce2017;
+    --card-3: #2f2f2f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M16 28 C16 28 3 19 3 11 C3 6.5 6.5 3 11 3 C13.5 3 15.8 4.3 16 6.5 C16.2 4.3 18.5 3 21 3 C25.5 3 29 6.5 29 11 C29 19 16 28 16 28 Z' fill='%23ff2d55' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E") 16 16, auto !important;
+}
+
+html, body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M16 28 C16 28 3 19 3 11 C3 6.5 6.5 3 11 3 C13.5 3 15.8 4.3 16 6.5 C16.2 4.3 18.5 3 21 3 C25.5 3 29 6.5 29 11 C29 19 16 28 16 28 Z' fill='%23ff2d55' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E") 16 16, auto !important;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+/* Birthday Loader Styles */
+#birthday-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #2b1020 0%, #0d050a 100%);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1s;
+}
+
+#birthday-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+    max-width: 650px;
+}
+
+.loader-title {
+    font-size: 4.5rem;
+    color: #ffb6c1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 25px rgba(255, 182, 193, 0.6);
+}
+
+.loader-emojis {
+    font-size: 4.5rem;
+    margin-bottom: 2.5rem;
+    animation: bounceEmojis 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes bounceEmojis {
+    0% { transform: translateY(0) scale(0.95); }
+    100% { transform: translateY(-15px) scale(1.08); }
+}
+
+.loader-subtitle {
+    font-size: 2rem;
+    color: #e0e0e0;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.loader-progress {
+    width: 280px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.loader-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff2d55, #ff85a2, #ffcc00);
+    border-radius: 10px;
+    animation: loadBar 4.8s ease-in-out forwards;
+}
+
+@keyframes loadBar {
+    0% { width: 0%; }
+    50% { width: 65%; }
+    100% { width: 100%; }
+}
+
+body {
+    font-family: "Instrument Serif", sans-serif;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+p {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    padding: 2rem;
+    background-color: var(--bg);
+    color: var(--fg);
+}
+
+.intro, .outro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.outro-content {
+    position: relative;
+    z-index: 2;
+    width: 85%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95);
+}
+
+.outro-content h1 {
+    font-size: 3.8rem;
+    margin-bottom: 2rem;
+    color: #ffb6c1;
+    line-height: 1.2;
+}
+
+.outro-content p {
+    font-size: 2.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.3rem;
+    color: #f0f0f0;
+}
+
+.outro-content .outro-wish {
+    font-size: 3rem;
+    margin-top: 2.5rem;
+    color: #ff85a2;
+}
+
+.outro img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100svh;
+    height: 100vw;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.48);
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.intro h1 {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-size: 5.5rem;
+    line-height: 1.1;
+    color: #d0d0d0;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.intro img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.65);
+    animation: slowZoom 20s infinite alternate ease-in-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+}
+
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.floating-item {
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+    font-size: 3.5rem;
+    filter: hue-rotate(var(--hue, 0deg)) drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
+    animation: floatAround var(--duration) ease-in-out infinite alternate;
+    animation-delay: var(--delay);
+    user-select: none;
+}
+
+@keyframes floatAround {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(0.9);
+    }
+    50% {
+        transform: translate(-25px, -35px) rotate(12deg) scale(1.15);
+    }
+    100% {
+        transform: translate(30px, 25px) rotate(-10deg) scale(1);
+    }
+}
+
+.sticky {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(10, 10, 10, 0.78), rgba(10, 10, 10, 0.78)), url("isha/2nd.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.sticky-header {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.sticky-header h1 {
+    position: relative;
+    text-align: center;
+    will-change: transform, opacity;
+    transform: translate(40px);
+    opacity: 0;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.card-container {
+    position: relative;
+    width: 75%;
+    display: flex;
+    perspective: 1000px;
+    transform: translate(40px);
+    will-change: width;
+}
+
+.card {
+    position: relative;
+    flex: 1;
+    aspect-ratio: 5/7;
+    transform-style: preserve-3d;
+    transform-origin: center; /* changed from top */
+}
+
+#card-1 {
+    border-radius: 20px 0 0 20px;
+}
+
+#card-3 {
+    border-radius: 0 20px 20px 0;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.card-back {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: center;
+    transform: rotateY(180deg);
+    padding: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+.card-back p {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+}
+
+#card-1 .card-back {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 45%), url("isha/back1.jpeg");
+    background-size: cover;
+    background-position: center;
+    color: var(--fg);
+}
+
+
+#card-2 .card-back {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 45%), url("isha/back2.jpeg");
+    background-size: cover;
+    background-position: center;
+    color: var(--fg);
+}
+
+
+#card-3 .card-back {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 45%), url("isha/back3.jpeg");
+    background-size: cover;
+    background-position: center;
+    color: var(--fg);
+}
+
+@media (max-width: 1000px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .intro h1 {
+        font-size: 3.8rem;
+    }
+
+    .intro h1,
+    .outro h1 {
+        width: 100%;
+    }
+
+    .sticky {
+        height: max-content;
+        padding: 4rem 2rem;
+        flex-direction: column;
+    }
+
+    .sticky-header {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        margin-bottom: 4rem;
+    }
+
+    .sticky-header h1 {
+        opacity: 1;
+    }
+
+    .card-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        border-radius: 20px !important;
+    }
+
+    #card-1,
+    #card-2,
+    #card-3,
+    .card-back {
+        transform: none;
+    }
+
+}
